@@ -28,6 +28,11 @@ const resolvers = {
             const movie = _.find(movieList, {title})
             return movie
 
+        },
+    },
+    User: {
+        favoriteMovies: () => {
+            return _.filter(movieList, (movie)=> movie.releaseYear >= 2000 && movie.releaseYear <= 2021)
         }
     }
 
