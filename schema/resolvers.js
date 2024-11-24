@@ -34,6 +34,17 @@ const resolvers = {
         favoriteMovies: () => {
             return _.filter(movieList, (movie)=> movie.releaseYear >= 2000 && movie.releaseYear <= 2021)
         }
+    },
+
+    Mutation: {
+        createUser: (parent, args) => {
+            const user = args.input
+            console.log(user)
+            const lastId = UserList[UserList.length - 1 ].id
+            user.id = lastId + 1 
+            UserList.push(user)
+            return user
+        }
     }
 
 }
